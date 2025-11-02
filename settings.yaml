@@ -1,0 +1,21 @@
+default:
+  app_env: "local"
+
+  database:
+    url: "postgresql+asyncpg://user:password@localhost:5432/database"
+
+  redis:
+    url: "redis://localhost:6379/0"
+
+  retry:
+    max_retries: 3
+    exponential_backoff: true
+    initial_delay: 1.0
+
+  notifications:
+    channels_order: ["email", "sms", "telegram"]
+
+development:
+  app_env: "dev"
+  database:
+    url: "postgresql+asyncpg://user:password@postgres:5432/database"
